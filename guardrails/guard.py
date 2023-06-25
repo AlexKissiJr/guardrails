@@ -35,6 +35,8 @@ class Guard:
         rail: Rail,
         num_reasks: int = 1,
         base_model: Optional[BaseModel] = None,
+        callbacks: Optional[List[Callback]] = None, 
+
     ):
         """Initialize the Guard."""
         self.rail = rail
@@ -42,6 +44,8 @@ class Guard:
         self.guard_state = GuardState([])
         self._reask_prompt = None
         self.base_model = base_model
+        self.callbacks = callbacks if callbacks is not None else []
+
 
     @property
     def input_schema(self) -> Schema:
